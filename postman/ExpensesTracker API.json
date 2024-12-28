@@ -1,0 +1,650 @@
+{
+	"info": {
+		"_postman_id": "a13221d1-ba05-422a-8e24-73ba794547c4",
+		"name": "ExpensesTracker API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40283823"
+	},
+	"item": [
+		{
+			"name": "Auth Service",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Adel Mahmoud",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "ad12#mail.com",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "ad12",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "ad12",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhjM2Y0ZGM1LWFjYjItNDBkMS05ZjIzLTkzMWY0ZDhlZjljMiIsImVtYWlsIjoibWFkbzEyI21haWwuY29tIiwic3ViIjoidXNlcklkIiwiaXNzIjoiZXhwbnNlc1RyYWNrZXJBcHAiLCJhdWQiOiJleHBuc2VzVHJhY2tlckFwcFVzZXJzIiwiaWF0IjoxNzM1Mzk4OTkyLCJleHAiOjE3MzUzOTkyOTJ9.NW8E05Htwu9pJHhVeGWVuNe43pGPJQ7ZIr24bTl6-vY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/auth/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Access Token",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/auth/refresh",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OTP Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhjM2Y0ZGM1LWFjYjItNDBkMS05ZjIzLTkzMWY0ZDhlZjljMiIsImVtYWlsIjoibWFkbzEyI21haWwuY29tIiwic3ViIjoidXNlcklkIiwiaXNzIjoiZXhwbnNlc1RyYWNrZXJBcHAiLCJhdWQiOiJleHBuc2VzVHJhY2tlckFwcFVzZXJzIiwiaWF0IjoxNzM1MjUyOTg3LCJleHAiOjE3MzUyNTY1ODd9.RURTaZH5YZTa6wJNwXqEIo4QS72BqxyxV0r8wocG_Rs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "reciever",
+									"value": "ahadel.dev@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/auth/pwd-reset/request",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"pwd-reset",
+								"request"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhjM2Y0ZGM1LWFjYjItNDBkMS05ZjIzLTkzMWY0ZDhlZjljMiIsImVtYWlsIjoibWFkbzEyI21haWwuY29tIiwic3ViIjoidXNlcklkIiwiaXNzIjoiZXhwbnNlc1RyYWNrZXJBcHAiLCJhdWQiOiJleHBuc2VzVHJhY2tlckFwcFVzZXJzIiwiaWF0IjoxNzM1MjUyOTg3LCJleHAiOjE3MzUyNTY1ODd9.RURTaZH5YZTa6wJNwXqEIo4QS72BqxyxV0r8wocG_Rs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "otp",
+									"value": "458FE427",
+									"type": "text"
+								},
+								{
+									"key": "newPassword",
+									"value": "654321",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/auth/pwd-reset/confirm",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"pwd-reset",
+								"confirm"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users Service",
+			"item": [
+				{
+					"name": "Get User Profile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA5ZmJmOWVkLTkzNGMtNDhkMy1hMmUxLTc2NzQ4YmFlM2I1MCIsImVtYWlsIjoiYWQxMiNtYWlsLmNvbSIsInN1YiI6InVzZXJJZCIsImlzcyI6ImV4cG5zZXNUcmFja2VyQXBwIiwiYXVkIjoiZXhwbnNlc1RyYWNrZXJBcHBVc2VycyIsImlhdCI6MTczNTQxMDcwNywiZXhwIjoxNzM1NDExMDA3fQ.QR4BbZeeXv5f-CuweIxR2XixV17f8TGLUl4erI80F_Y",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/users/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhjM2Y0ZGM1LWFjYjItNDBkMS05ZjIzLTkzMWY0ZDhlZjljMiIsImVtYWlsIjoibWFkbzEyI21haWwuY29tIiwic3ViIjoidXNlcklkIiwiaXNzIjoiZXhwbnNlc1RyYWNrZXJBcHAiLCJhdWQiOiJleHBuc2VzVHJhY2tlckFwcFVzZXJzIiwiaWF0IjoxNzM1NDAxMTc2LCJleHAiOjE3MzU0MDE0NzZ9.Wk1Rknt-jmxbz0aQCx6uYDGHrrWdJqIzBLpPr708Cmg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "newName",
+									"value": "AHMED ADEL MAHMOUD",
+									"type": "text"
+								},
+								{
+									"key": "newEmail",
+									"value": "ahadel943@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "newUsername",
+									"value": "ah123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/users/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Profile Picture",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA5ZmJmOWVkLTkzNGMtNDhkMy1hMmUxLTc2NzQ4YmFlM2I1MCIsImVtYWlsIjoiYWQxMiNtYWlsLmNvbSIsInN1YiI6InVzZXJJZCIsImlzcyI6ImV4cG5zZXNUcmFja2VyQXBwIiwiYXVkIjoiZXhwbnNlc1RyYWNrZXJBcHBVc2VycyIsImlhdCI6MTczNTQwNTcwOSwiZXhwIjoxNzM1NDA2MDA5fQ.Zfc15D9Iec-UeoGu3kasTEMjD2oWv75bORORWWKsWnM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "profilePicture",
+									"type": "file",
+									"src": "/J:/ahmed/New folder/-5794435259612380754_121.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/users/profile/pic",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"profile",
+								"pic"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFkNTdiNmMwLTExMDQtNDQxNy04N2U3LTNiNGQ1YTc3MWI0MiIsImVtYWlsIjoic2FzbzEyI21haWwuY29tIiwic3ViIjoidXNlcklkIiwiaXNzIjoiZXhwbnNlc1RyYWNrZXJBcHAiLCJhdWQiOiJleHBuc2VzVHJhY2tlckFwcFVzZXJzIiwiaWF0IjoxNzM1NDAyNzAwLCJleHAiOjE3MzU0MDMwMDB9.Lt0al_1rcvUDZATpUekQyJ4XUtXVl-ctG6CWHUSPDKg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/users/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Expenses Service",
+			"item": [
+				{
+					"name": "Create Expense",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImUyNzM5ZWE2LTBjMjctNDM0Yy05OTNjLWQ0YWVhMmYxYmQ0NyIsImVtYWlsIjoiYW1hbDEyI21haWwuY29tIiwic3ViIjoidXNlcklkIiwiaXNzIjoiZXhwbnNlc1RyYWNrZXJBcHAiLCJhdWQiOiJleHBuc2VzVHJhY2tlckFwcFVzZXJzIiwiaWF0IjoxNzM1NDA4MjgwLCJleHAiOjE3MzU0MDg1ODB9.j2SeOkAcaLXVutYYLV2qy3Jbz7AW0e3XhQZQoBFFL00",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "description",
+									"value": "GEAR 47",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "15000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/expenses/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"expenses",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Expenses",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA5ZmJmOWVkLTkzNGMtNDhkMy1hMmUxLTc2NzQ4YmFlM2I1MCIsImVtYWlsIjoiYWQxMiNtYWlsLmNvbSIsInN1YiI6InVzZXJJZCIsImlzcyI6ImV4cG5zZXNUcmFja2VyQXBwIiwiYXVkIjoiZXhwbnNlc1RyYWNrZXJBcHBVc2VycyIsImlhdCI6MTczNTQxMjQ1MiwiZXhwIjoxNzM1NDEyNzUyfQ.7NGst0rM-snIIgIirLyz6fUytC1ADkbw4AbPJnmqlZU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/expenses?page=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"expenses"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Expense By ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA5ZmJmOWVkLTkzNGMtNDhkMy1hMmUxLTc2NzQ4YmFlM2I1MCIsImVtYWlsIjoiYWQxMiNtYWlsLmNvbSIsInN1YiI6InVzZXJJZCIsImlzcyI6ImV4cG5zZXNUcmFja2VyQXBwIiwiYXVkIjoiZXhwbnNlc1RyYWNrZXJBcHBVc2VycyIsImlhdCI6MTczNTQxMjEzOSwiZXhwIjoxNzM1NDEyNDM5fQ.rFNVrZ7TymBr_5TqZLHYE1Ic3N3nREx0lztpS9SeR9Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/expenses/31aa5dfc-6002-48f9-9f56-f49b4047d0a7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"expenses",
+								"31aa5dfc-6002-48f9-9f56-f49b4047d0a7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Expense By ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA5ZmJmOWVkLTkzNGMtNDhkMy1hMmUxLTc2NzQ4YmFlM2I1MCIsImVtYWlsIjoiYWQxMiNtYWlsLmNvbSIsInN1YiI6InVzZXJJZCIsImlzcyI6ImV4cG5zZXNUcmFja2VyQXBwIiwiYXVkIjoiZXhwbnNlc1RyYWNrZXJBcHBVc2VycyIsImlhdCI6MTczNTQxMjEzOSwiZXhwIjoxNzM1NDEyNDM5fQ.rFNVrZ7TymBr_5TqZLHYE1Ic3N3nREx0lztpS9SeR9Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "newDescription",
+									"value": "test updated",
+									"type": "text"
+								},
+								{
+									"key": "newAmount",
+									"value": "100",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/expenses/31aa5dfc-6002-48f9-9f56-f49b4047d0a7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"expenses",
+								"31aa5dfc-6002-48f9-9f56-f49b4047d0a7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Expense By ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA5ZmJmOWVkLTkzNGMtNDhkMy1hMmUxLTc2NzQ4YmFlM2I1MCIsImVtYWlsIjoiYWQxMiNtYWlsLmNvbSIsInN1YiI6InVzZXJJZCIsImlzcyI6ImV4cG5zZXNUcmFja2VyQXBwIiwiYXVkIjoiZXhwbnNlc1RyYWNrZXJBcHBVc2VycyIsImlhdCI6MTczNTQxMjQ1MiwiZXhwIjoxNzM1NDEyNzUyfQ.7NGst0rM-snIIgIirLyz6fUytC1ADkbw4AbPJnmqlZU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/expenses/2dcae42d-5c35-47c5-880c-3d1795f4750f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"expenses",
+								"2dcae42d-5c35-47c5-880c-3d1795f4750f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
